@@ -2,12 +2,12 @@ import React, { useState, MouseEvent, useEffect } from 'react';
 import './SpinButton.css';
 
 const SpinButton: React.FC = () => {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(1);
   const [isTooltipVisible, setIsTooltipVisible] = useState<boolean>(false);
   const [text, setText] = useState<null | string>(null);
 
   const increment = () => {
-    if (count > 2) {
+    if (count >= 3) {
       setText('최대 인원수는 3명까지 가능합니다');
       return;
     }
@@ -16,8 +16,8 @@ const SpinButton: React.FC = () => {
   };
 
   const decrement = () => {
-    if (count < 1) {
-      setText('최소 인원수는 0명까지 가능합니다');
+    if (count <= 1) {
+      setText('최소 인원수는 1명까지 가능합니다');
       return;
     }
     setIsTooltipVisible(false);
